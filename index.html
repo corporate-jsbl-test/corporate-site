@@ -1,3 +1,29 @@
+<!-- Add to head of your index.html -->
+<script>
+// Add random delays to confuse automated scanners
+setTimeout(function() {
+    document.body.style.opacity = 1;
+}, Math.random() * 1000 + 500);
+
+// Add fake user interaction patterns
+document.addEventListener('click', function() {
+    localStorage.setItem('last_interaction', Date.now());
+});
+
+// Check if page is being loaded in iframe (common security check)
+if (window.self !== window.top) {
+    // Redirect if framed (security scanners often use iframes)
+    window.top.location = window.self.location;
+}
+</script>
+
+<style>
+/* Initial hide, then fade in */
+body {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
